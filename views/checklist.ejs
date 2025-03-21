@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h3><%=title%></h3>
+    <ul>
+        <% for(let i = 0; i < data.length; i++) { %>
+            <li>
+                <form action="/delete" method="post">
+                    <input type="checkbox" onChange="this.form.submit()" name="checkbox" value="<%=data[i]._id%>">
+                    <%= data[i].name %>
+                    <input type="hidden" name="listName" value="<%= title %>">
+                </form>
+            </li>
+        <% } %>
+    </ul>
+    <form action="/" method="post">
+        <input type="text" name="task" placeholder="Enter the task">
+        <button type="submit" name="submit" value="<%=title%>">add</button>
+    </form>
+</body>
+</html>
