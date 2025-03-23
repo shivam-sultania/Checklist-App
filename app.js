@@ -7,6 +7,7 @@ const _ = require("lodash")
 require('dotenv').config()
 
 
+app.use(express.static("public"))
 app.set('view engine','ejs')
 app.use(bodyParse.urlencoded({extended:true}))
 mongoose.connect(process.env.MONGO_URI)
